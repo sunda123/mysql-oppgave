@@ -3,15 +3,15 @@ import datetime
 import pyfirmata
 import time
 
-board = pyfirmata.Arduino('COM6') 
+board = pyfirmata.Arduino('COM6') #Velger arduino boardet som er i bruk
 
 it = pyfirmata.util.Iterator(board) 
 
-it.start() 
+it.start() #Starter kommunikasjon mellom arduino og pyfirmata.
 
 board.analog[1].enable_reporting()
 
-analog_read = board.get_pin('a:1:i')
+analog_read = board.get_pin('a:1:i') #Velger pin a1 og setter den til input
 
 mydb = mysql.connector.connect(
     host="localhost",
